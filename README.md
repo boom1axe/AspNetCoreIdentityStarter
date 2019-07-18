@@ -4,7 +4,7 @@ might need for starting their projects and focus on other tasks.
 
 ## Roadmap
 Here are the tasks that will be accomplished/set up in this template
-- [ ] Register with username and email (instead of defaulting username to email)
+- [X] Register with username and email (instead of defaulting username to email)
 - [ ] Require unique email
 - [ ] Password strength configuration
 - [ ] Add custom roles to database seed
