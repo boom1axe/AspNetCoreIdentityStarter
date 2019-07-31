@@ -6,7 +6,7 @@ might need for starting their projects and focus on other tasks.
 Here are the tasks that will be accomplished/set up in this template
 - [X] Register with username and email (instead of defaulting username to email)
 - [ ] Require unique email
-- [ ] Password strength configuration
+- [X] Password strength configuration
 - [ ] Add custom roles to database seed
 - [ ] Manage users and add/remove roles to users using a web page
 - [ ] Email verification (using SendGrid as example)
