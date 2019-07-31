@@ -17,3 +17,7 @@ Here are the tasks that will be accomplished/set up in this template
 
 ## Prerequisites
 - Template targets [.NET Core 2.2](https://dotnet.microsoft.com/download)
+
+## Videos
+If you would like to see how these features were implemented check out the
+[YouTube Playlist](https://www.youtube.com/playlist?list=PLw2CAE2sjDFTR1yr1hus2PGyH9BQPc5fy)
