@@ -38,20 +38,12 @@ namespace AspNetCoreIdentityStarter
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(SetIdentityConfigOptions)
+            services.AddDefaultIdentity<IdentityUser>(IdentityHelper.SetIdentityConfigOptions)
+                .AddRoles<IdentityRole>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-        }
-
-        private void SetIdentityConfigOptions(IdentityOptions options)
-        {
-            options.Password.RequireDigit = false;
-            options.Password.RequiredLength = 8;
-            options.Password.RequireLowercase = false;
-            options.Password.RequireUppercase = false;
-            options.Password.RequireNonAlphanumeric = false;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,6 +73,11 @@ namespace AspNetCoreIdentityStarter
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            // Create custom roles
+            var serviceProvider = app.ApplicationServices.GetRequiredService<IServiceProvider>().CreateScope();
+            IdentityHelper.CreateRoles(serviceProvider.ServiceProvider, IdentityHelper.Admin, IdentityHelper.Student)
+                          .Wait();
         }
     }
 }
